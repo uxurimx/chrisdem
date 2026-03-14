@@ -796,7 +796,7 @@
           <div class="reviewer-avatar">M</div>
           <div class="reviewer-info">
             <strong>Maria G.</strong>
-            <span data-en="Homeowner, Los Angeles" data-es="Propietaria, Los Ángeles">Homeowner, Los Angeles</span>
+            <span data-en="Homeowner, Los Angeles" data-es="Propietaria, Los Ángeles">Homeowner, Kenner</span>
           </div>
         </div>
       </div>
@@ -810,7 +810,7 @@
           <div class="reviewer-avatar">J</div>
           <div class="reviewer-info">
             <strong>James R.</strong>
-            <span data-en="Homeowner, Burbank" data-es="Propietario, Burbank">Homeowner, Burbank</span>
+            <span data-en="Homeowner, Burbank" data-es="Propietario, Burbank">Homeowner, Lake Town</span>
           </div>
         </div>
       </div>
@@ -824,7 +824,7 @@
           <div class="reviewer-avatar">S</div>
           <div class="reviewer-info">
             <strong>Sandra T.</strong>
-            <span data-en="Homeowner, Glendale" data-es="Propietaria, Glendale">Homeowner, Glendale</span>
+            <span data-en="Homeowner, Glendale" data-es="Propietaria, Glendale">Homeowner, Metairie</span>
           </div>
         </div>
       </div>
@@ -923,8 +923,6 @@
     const modal = document.getElementById('galleryModal');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    // re-apply lang to gallery items
-    setLang(currentLang);
   }
   function closeGallery() {
     document.getElementById('galleryModal').style.display = 'none';
@@ -941,7 +939,7 @@
     currentLang = lang;
     document.querySelectorAll('[data-en]').forEach(el => {
       const val = el.getAttribute('data-' + lang);
-      if (val) el.innerHTML = val;
+      if (val && el.children.length === 0) el.innerHTML = val;
     });
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
